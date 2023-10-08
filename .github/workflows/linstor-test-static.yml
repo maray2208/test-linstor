@@ -1,15 +1,26 @@
-name: Demo Workflow
-on: workflow_dispatch
+name: Test-linstor-labelt
+on:
+  pull_request:
+    types: [labeled]
 jobs:
-  print:
+
+  labels:
+    name: if Label linstor
+    if: github.event.label.name == 'linstor-test'
     runs-on: ubuntu-latest
     steps:
       - name: Print to console
         run: echo "linstor test run"
-      - name: Print a few lines
-        run: |
-          echo First line 
-          echo Second line
-          echo 3 line
+
+    
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Print to console
+  #       run: echo "linstor test run"
+  #     - name: Print a few lines
+  #       run: |
+  #         echo First line 
+  #         echo Second line
+  #         echo 3 line
           
       
